@@ -40,7 +40,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
         
         let mailViewController = MFMailComposeViewController()
         //let recipients = ["tadakazu1972@gmail.com"]
-        let toRecipients = ["ua0001@city.osaka.lg.jp; ua0013@city.osaka.lg.jp"]
+        let toRecipients = ["ua0001@city.osaka.lg.jp", "ua0013@city.osaka.lg.jp"]
         let recipients = mAddressArray
         
         mailViewController.mailComposeDelegate = self
