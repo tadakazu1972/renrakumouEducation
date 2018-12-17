@@ -49,7 +49,7 @@ class ContactCellCheckbox: UITableViewCell, UITextViewDelegate {
         
         kubun = UILabel(frame: CGRect(x: 28, y: 28, width: 60, height: 16))
         kubun?.text = "nil"
-        kubun?.font = UIFont.systemFont(ofSize: 12)
+        kubun?.font = UIFont.systemFont(ofSize: 14)
         self.contentView.addSubview(kubun!)
         
         syozoku0 = UILabel(frame: CGRect(x: 62, y: 28, width: 100, height: 16))

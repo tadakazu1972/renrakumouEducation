@@ -196,7 +196,7 @@ class ContactLoadDialog2: NSObject, UITableViewDelegate, UITableViewDataSource {
         cell.checkbox!.isSelected = self.checkArray[indexPath.row]
         cell.name!.text = self.result[indexPath.row][0]
         cell.tel!.text  = self.result[indexPath.row][1]
-        cell.kubun!.text = self.result[indexPath.row][3] + "号"
+        cell.kubun!.text = self.result[indexPath.row][3]
         cell.syozoku0!.text = self.result[indexPath.row][4]
         cell.syozoku!.text = self.result[indexPath.row][5]
         cell.kinmu!.text = self.result[indexPath.row][6]

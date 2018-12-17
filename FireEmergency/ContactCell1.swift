@@ -36,7 +36,7 @@ class ContactCell1: UITableViewCell {
         
         kubun = UILabel(frame: CGRect(x: 0, y: 28, width: 60, height: 16))
         kubun?.text = "nil"
-        kubun?.font = UIFont.systemFont(ofSize: 16)
+        kubun?.font = UIFont.systemFont(ofSize: 18)
         self.contentView.addSubview(kubun!)
         
         syozoku0 = UILabel(frame: CGRect(x: 30, y: 28, width: 100, height: 16))
