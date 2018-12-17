@@ -26,15 +26,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let lblSyozoku      = UILabel(frame: CGRect.zero)
     let txtSyozoku      = UITextField(frame: CGRect.zero)
     let picSyozoku      = UIPickerView(frame: CGRect.zero)
-    let syozokuArray: NSArray = [["すべて"],
-                                 ["すべて","北区","都島区","福島区"],
-                                 ["すべて","此花区","中央区","西区"],
-                                 ["すべて","港区","大正区","天王寺区"],
-                                 ["すべて","浪速区","西淀川区","淀川区"],
-                                 ["すべて","東淀川区","東成区","生野区"],
-                                 ["すべて","旭区","城東区","鶴見区"],
-                                 ["すべて","住之江区","阿倍野区","住吉区"],
-                                 ["すべて","東住吉区","平野区","西成区"]]
+    let syozokuArray: NSArray = ["すべて","北区","都島区","福島区","此花区","中央区","西区","港区","大正区","天王寺区","浪速区","西淀川区","淀川区","東淀川区","東成区","生野区","旭区","城東区","鶴見区","住之江区","阿倍野区","住吉区","東住吉区","平野区","西成区"]
     let lblKinmu        = UILabel(frame: CGRect.zero)
     let txtKinmu        = UITextField(frame: CGRect.zero)
     let picKinmu        = UIPickerView(frame: CGRect.zero)
@@ -457,7 +449,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             rowNum = syozoku0Array.count
             break
         case 3:
-            rowNum = (syozokuArray[syozoku0Index] as AnyObject).count
+            rowNum = syozokuArray.count
             break
         case 4:
             rowNum = kinmuArray.count
@@ -482,7 +474,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             picComponent = syozoku0Array[row] as? String
             break
         case 3:
-            picComponent = (syozokuArray[syozoku0Index] as! NSArray)[row] as? String
+            picComponent = syozokuArray[row] as? String
             break
         case 4:
             picComponent = kinmuArray[row] as? String
@@ -504,12 +496,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             break
         case 2:
             txtSyozoku0.text = syozoku0Array[row] as? String
-            //所属(小分類)の表示を変更
-            syozoku0Index = row
-            txtSyozoku.text = (syozokuArray[syozoku0Index] as! NSArray)[0] as? String
             break
         case 3:
-            txtSyozoku.text = (syozokuArray[syozoku0Index] as! NSArray)[row] as? String
+            txtSyozoku.text = syozokuArray[row] as? String
             break
         case 4:
             txtKinmu.text = kinmuArray[row] as? String
@@ -534,6 +523,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         mContactLoadDialog2.showResult()
     }
     
+    /*
     //震度6弱以上
     func showSelectEarthquake1(_ sender: UIButton){
         //DBにつないでselect文実行
@@ -562,6 +552,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         mContactLoadDialog2 = ContactLoadDialog2(parentView: self, resultFrom: mDBHelper.resultArray)
         mContactLoadDialog2.showResult()
     }
+    */
     
     //検索ボタンクリック
     func onClickbtnSearch(_ sender : UIButton){

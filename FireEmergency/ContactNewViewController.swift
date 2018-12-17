@@ -25,15 +25,7 @@ class ContactNewViewController: UIViewController, UIPickerViewDelegate, UIPicker
     let lblSyozoku      = UILabel(frame: CGRect.zero)
     let txtSyozoku      = UITextField(frame: CGRect.zero)
     let picSyozoku      = UIPickerView(frame: CGRect.zero)
-    let syozokuArray: NSArray = [["すべて"],
-                                 ["すべて","北区","都島区","福島区"],
-                                 ["すべて","此花区","中央区","西区"],
-                                 ["すべて","港区","大正区","天王寺区"],
-                                 ["すべて","浪速区","西淀川区","淀川区"],
-                                 ["すべて","東淀川区","東成区","生野区"],
-                                 ["すべて","旭区","城東区","鶴見区"],
-                                 ["すべて","住之江区","阿倍野区","住吉区"],
-                                 ["すべて","東住吉区","平野区","西成区"]]
+    let syozokuArray: NSArray = ["すべて","北区","都島区","福島区","此花区","中央区","西区","港区","大正区","天王寺区","浪速区","西淀川区","淀川区","東淀川区","東成区","生野区","旭区","城東区","鶴見区","住之江区","阿倍野区","住吉区","東住吉区","平野区","西成区"]
     let lblKinmu        = UILabel(frame: CGRect.zero)
     let txtKinmu        = UITextField(frame: CGRect.zero)
     /*
@@ -141,7 +133,7 @@ class ContactNewViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.view.addSubview(lblSyozoku)
         //所属(小分類)テキストフィールド
         txtSyozoku.borderStyle = UITextBorderStyle.bezel
-        txtSyozoku.text = (syozokuArray[0] as! NSArray)[0] as? String
+        txtSyozoku.text = syozokuArray[0] as? String
         txtSyozoku.inputView = picSyozoku
         txtSyozoku.inputAccessoryView = toolbar
         txtSyozoku.translatesAutoresizingMaskIntoConstraints = false
@@ -315,7 +307,7 @@ class ContactNewViewController: UIViewController, UIPickerViewDelegate, UIPicker
             rowNum = syozoku0Array.count
             break
         case 3:
-            rowNum = (syozokuArray[syozoku0Index] as AnyObject).count
+            rowNum = syozokuArray.count
             break
         /*
         case 4:
@@ -342,7 +334,7 @@ class ContactNewViewController: UIViewController, UIPickerViewDelegate, UIPicker
             picComponent = syozoku0Array[row] as? String
             break
         case 3:
-            picComponent = (syozokuArray[syozoku0Index] as! NSArray)[row] as? String
+            picComponent = syozokuArray[row] as? String
             break
         /*
         case 4:
@@ -366,12 +358,9 @@ class ContactNewViewController: UIViewController, UIPickerViewDelegate, UIPicker
             break
         case 2:
             txtSyozoku0.text = syozoku0Array[row] as? String
-            //所属(小分類)の表示を変更
-            syozoku0Index = row
-            txtSyozoku.text = (syozokuArray[syozoku0Index] as! NSArray)[0] as? String
             break
         case 3:
-            txtSyozoku.text = (syozokuArray[syozoku0Index] as! NSArray)[row] as? String
+            txtSyozoku.text = syozokuArray[row] as? String
             break
         /*
         case 4:
