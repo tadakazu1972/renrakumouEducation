@@ -104,7 +104,7 @@ class DBHelper {
         //SQL文作成準備
         var kubunSQL : String = "IS NOT NULL"
         if kubun != "すべて" {
-            kubunSQL = ">=" + kubun
+            kubunSQL = "='" + kubun + "'"
         }
         var syozoku0SQL : String = "IS NOT NULL"
         if syozoku0 != "すべて" {
@@ -140,7 +140,7 @@ class DBHelper {
         resultArray.removeAll()
         
         //SQL文作成準備
-        let kubunSQL : String = ">=" + kubun
+        let kubunSQL : String = "=IS NOT NULL"
         let syozoku0SQL : String = "IS NOT NULL"
         let syozokuSQL : String = "IS NOT NULL"
         let kinmuSQL : String = "IS NOT NULL"
