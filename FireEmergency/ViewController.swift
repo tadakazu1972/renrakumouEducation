@@ -187,13 +187,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         lblKinmu.textAlignment = NSTextAlignment.left
         lblKinmu.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(lblKinmu)
+        */
+        //ここはDBHelper.selectで"すべて"で活かす必要あり
         //勤務区分テキストフィールド
         txtKinmu.borderStyle = UITextBorderStyle.bezel
         txtKinmu.text = kinmuArray[0] as? String
-        txtKinmu.inputView = picKinmu
+        //txtKinmu.inputView = picKinmu
         txtKinmu.inputAccessoryView = toolbar
         txtKinmu.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(txtKinmu)
+        /*
         //勤務区分ピッカービュー
         picKinmu.delegate = self
         picKinmu.dataSource = self
