@@ -27,21 +27,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let txtSyozoku      = UITextField(frame: CGRect.zero)
     let picSyozoku      = UIPickerView(frame: CGRect.zero)
     let syozokuArray: NSArray = ["すべて","北区","都島区","福島区","此花区","中央区","西区","港区","大正区","天王寺区","浪速区","西淀川区","淀川区","東淀川区","東成区","生野区","旭区","城東区","鶴見区","住之江区","阿倍野区","住吉区","東住吉区","平野区","西成区"]
-    /*
-    let lblKinmu        = UILabel(frame: CGRect.zero)
-    let txtKinmu        = UITextField(frame: CGRect.zero)
-    let picKinmu        = UIPickerView(frame: CGRect.zero)
-    */
-    let kinmuArray: NSArray = ["すべて","本庁舎","阿波座センタービル","災害本部","阿倍野防災センター","北区役所","都島区役所","福島区役所","此花区役所","中央区役所","西区役所","港区役所","大正区役所","天王寺区役所","浪速区役所","西淀川区役所","淀川区役所","東淀川区役所","東成区役所","生野区役所","旭区役所","城東区役所","鶴見区役所","住之江区役所","阿倍野区役所","住吉区役所","東住吉区役所","平野区役所","西成区役所"]
+    let lblMail         = UILabel(frame: CGRect.zero)
+    let txtMail         = UITextField(frame: CGRect.zero)
+    let picMail         = UIPickerView(frame: CGRect.zero)
+    let mailArray: NSArray = ["総務課","教育活動支援担当","初等教育担当","中学校教育担当","高等学校教育担当"]
     let btnSearch       = UIButton(frame: CGRect.zero)
     let btnCancel       = UIButton(frame: CGRect.zero)
-    /*
-    //震度ボタン
-    let btnEarthquake1  = UIButton(frame: CGRect.zero)
-    let btnEarthquake2  = UIButton(frame: CGRect.zero)
-    let btnEarthquake3  = UIButton(frame: CGRect.zero)
-    let btnEarthquake4  = UIButton(frame: CGRect.zero)
-    */
     //情報ボタン類
     let pad21            = UIView(frame: CGRect.zero) //ボタンの間にはさむ見えないpaddingがわり
     let pad22            = UIView(frame: CGRect.zero)
@@ -57,7 +48,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     fileprivate var mContactViewContoller: ContactViewController!
     //所属(大分類)のインデックス保存用
     fileprivate var syozoku0Index : Int = 0
-    //データ保存用
+    //メール保存用宛先保存用
     let userDefaults = UserDefaults.standard
     //SQLite用
     internal var mDBHelper: DBHelper!
@@ -73,6 +64,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         //初回起動判定
         if userDefaults.bool(forKey: "firstLaunch"){
+            
+            //メール保存宛先が空になるのを防ぐためとりあえず総務課を設定
+            userDefaults.set("総務課", forKey: "mailTo")
             
             /*
             //DBダミーデータ生成
@@ -182,73 +176,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         picSyozoku.tag = 3
         picSyozoku.selectRow(0, inComponent:0, animated:false)
         
-        /*  520校になってしまうので不要
-        //勤務区分ラベル
-        lblKinmu.text = "・参集場所"
-        lblKinmu.adjustsFontSizeToFitWidth = true
-        lblKinmu.textAlignment = NSTextAlignment.left
-        lblKinmu.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(lblKinmu)
-        //ここはDBHelper.selectで"すべて"で活かす必要あり
-        //勤務区分テキストフィールド
-        txtKinmu.borderStyle = UITextBorderStyle.bezel
-        txtKinmu.text = kinmuArray[0] as? String
-        //txtKinmu.inputView = picKinmu
-        txtKinmu.inputAccessoryView = toolbar
-        txtKinmu.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(txtKinmu)
-        //勤務区分ピッカービュー
-        picKinmu.delegate = self
-        picKinmu.dataSource = self
-        picKinmu.translatesAutoresizingMaskIntoConstraints = false
-        picKinmu.tag = 4
-        picKinmu.selectRow(0, inComponent:0, animated:false)
-        */
-        
-        
-        /* ボタンも不要
-        //震度6弱以上
-        btnEarthquake1.backgroundColor = UIColor.red
-        btnEarthquake1.layer.masksToBounds = true
-        btnEarthquake1.setTitle("震度6弱以上", for: UIControlState())
-        btnEarthquake1.setTitleColor(UIColor.white, for: UIControlState())
-        btnEarthquake1.setTitleColor(UIColor.black, for: UIControlState.highlighted)
-        btnEarthquake1.layer.cornerRadius = 8.0
-        btnEarthquake1.tag=5
-        btnEarthquake1.translatesAutoresizingMaskIntoConstraints = false
-        btnEarthquake1.addTarget(self, action: #selector(self.showSelectEarthquake1(_:)), for: .touchUpInside)
-        self.view.addSubview(btnEarthquake1)
-        //震度５強
-        btnEarthquake2.backgroundColor = UIColor.red
-        btnEarthquake2.layer.masksToBounds = true
-        btnEarthquake2.setTitle("震度５強", for: UIControlState())
-        btnEarthquake2.setTitleColor(UIColor.white, for: UIControlState())
-        btnEarthquake2.layer.cornerRadius = 8.0
-        btnEarthquake2.tag=6
-        btnEarthquake2.translatesAutoresizingMaskIntoConstraints = false
-        btnEarthquake2.addTarget(self, action: #selector(self.showSelectEarthquake2(_:)), for: .touchUpInside)
-        self.view.addSubview(btnEarthquake2)
-        //震度5弱
-        btnEarthquake3.backgroundColor = UIColor.red
-        btnEarthquake3.layer.masksToBounds = true
-        btnEarthquake3.setTitle("震度5弱", for: UIControlState())
-        btnEarthquake3.setTitleColor(UIColor.white, for: UIControlState())
-        btnEarthquake3.layer.cornerRadius = 8.0
-        btnEarthquake3.tag=7
-        btnEarthquake3.translatesAutoresizingMaskIntoConstraints = false
-        btnEarthquake3.addTarget(self, action: #selector(self.showSelectEarthquake3(_:)), for: .touchUpInside)
-        self.view.addSubview(btnEarthquake3)
-        //震度4
-        btnEarthquake4.backgroundColor = UIColor.red
-        btnEarthquake4.layer.masksToBounds = true
-        btnEarthquake4.setTitle("震度4", for: UIControlState())
-        btnEarthquake4.setTitleColor(UIColor.white, for: UIControlState())
-        btnEarthquake4.layer.cornerRadius = 8.0
-        btnEarthquake4.tag=8
-        btnEarthquake4.translatesAutoresizingMaskIntoConstraints = false
-        btnEarthquake4.addTarget(self, action: #selector(self.showSelectEarthquake4(_:)), for: .touchUpInside)
-        self.view.addSubview(btnEarthquake4)
-        */
+        //メール宛先ラベル
+        lblMail.text = "・メール保存宛先"
+        lblMail.adjustsFontSizeToFitWidth = true
+        lblMail.textAlignment = NSTextAlignment.left
+        lblMail.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lblMail)
+        //メール宛先ラベルテキストフィールド
+        txtMail.borderStyle = UITextBorderStyle.bezel
+        txtMail.text = mailArray[0] as? String
+        txtMail.inputView = picMail
+        txtMail.inputAccessoryView = toolbar
+        txtMail.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(txtMail)
+        //メール宛先PickerView
+        picMail.delegate = self
+        picMail.dataSource = self
+        picMail.translatesAutoresizingMaskIntoConstraints = false
+        picMail.tag = 4
+        picMail.selectRow(0, inComponent:0, animated:false)
         
         //pad
         pad21.translatesAutoresizingMaskIntoConstraints = false
@@ -368,59 +314,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             Constraint(txtSyozoku, .leading, to:self.view, .centerX, constant:0),
             Constraint(txtSyozoku, .trailing, to:self.view, .trailing, constant:-16)
             ])
-        /*
         self.view.addConstraints([
-            //勤務区分ラベル
-            Constraint(lblKinmu, .top, to:lblSyozoku, .bottom, constant:24),
-            Constraint(lblKinmu, .leading, to:self.view, .leading, constant:16),
-            Constraint(lblKinmu, .width, to:self.view, .width, constant:0, multiplier:0.8)
+            //メール保存宛先ラベル
+            Constraint(lblMail, .top, to:lblSyozoku, .bottom, constant:24),
+            Constraint(lblMail, .leading, to:self.view, .leading, constant:16),
+            Constraint(lblMail, .width, to:self.view, .width, constant:0, multiplier:0.8)
             ])
         self.view.addConstraints([
-            //勤務区分テキストフィールド
-            Constraint(txtKinmu, .top, to:lblSyozoku, .bottom, constant:24),
-            Constraint(txtKinmu, .leading, to:self.view, .centerX, constant:0),
-            Constraint(txtKinmu, .trailing, to:self.view, .trailing, constant:-16)
+            //メール保存宛先テキストフィールド
+            Constraint(txtMail, .top, to:lblSyozoku, .bottom, constant:24),
+            Constraint(txtMail, .leading, to:self.view, .centerX, constant:0),
+            Constraint(txtMail, .trailing, to:self.view, .trailing, constant:-16)
             ])
-        */
-        
-        /*
-        //震度ボタン
-        self.view.addConstraints([
-            //震度6弱以上ボタン
-            Constraint(btnEarthquake1, .top, to:lblKinmu, .bottom, constant:32),
-            Constraint(btnEarthquake1, .leading, to:self.view, .leading, constant:8),
-            Constraint(btnEarthquake1, .trailing, to:self.view, .centerX, constant:-8)
-            ])
-        self.view.addConstraints([
-            //震度５強ボタン
-            Constraint(btnEarthquake2, .top, to:lblKinmu, .bottom, constant:32),
-            Constraint(btnEarthquake2, .leading, to:self.view, .centerX, constant:8),
-            Constraint(btnEarthquake2, .trailing, to:self.view, .trailing, constant:-8)
-            ])
-        self.view.addConstraints([
-            //震度5弱ボタン
-            Constraint(btnEarthquake3, .top, to:btnEarthquake1, .bottom, constant:8),
-            Constraint(btnEarthquake3, .leading, to:self.view, .leading, constant:8),
-            Constraint(btnEarthquake3, .trailing, to:self.view, .centerX, constant:-8)
-            ])
-        self.view.addConstraints([
-            //震度4ボタン
-            Constraint(btnEarthquake4, .top, to:btnEarthquake1, .bottom, constant:8),
-            Constraint(btnEarthquake4, .leading, to:self.view, .centerX, constant:8),
-            Constraint(btnEarthquake4, .trailing, to:self.view, .trailing, constant:-8)
-            ])
-        */
-        
-        //情報ボタン
-        /*
-        self.view.addConstraints([
-            //pad21
-            Constraint(pad21, .bottom, to:btnEarthquake4, .top, constant:-8),
-            Constraint(pad21, .leading, to:self.view, .leading, constant:0),
-            Constraint(pad21, .width, to:self.view, .width, constant:0, multiplier:0.024)
-            ])
-        */
-        
         self.view.addConstraints([
             //データ操作ボタン
             Constraint(btnCancel, .bottom, to:self.view, .bottom, constant:-10),
@@ -455,7 +360,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             rowNum = syozokuArray.count
             break
         case 4:
-            rowNum = kinmuArray.count
+            rowNum = mailArray.count
             break
         default:
             rowNum = kubunArray.count
@@ -479,11 +384,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         case 3:
             picComponent = syozokuArray[row] as? String
             break
-        /*
         case 4:
-            picComponent = kinmuArray[row] as? String
+            picComponent = mailArray[row] as? String
             break
-        */
         default:
             picComponent = kubunArray[row] as? String
             break
@@ -505,11 +408,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         case 3:
             txtSyozoku.text = syozokuArray[row] as? String
             break
-        /*
         case 4:
-            txtKinmu.text = kinmuArray[row] as? String
+            txtMail.text = mailArray[row] as? String
+            //userDefaultsにも保存
+            userDefaults.set(txtMail.text, forKey: "mailTo")
             break
-        */
         default:
             break
         }
@@ -520,7 +423,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         txtKubun.endEditing(true) //閉じるアクション
         txtSyozoku0.endEditing(true)
         txtSyozoku.endEditing(true)
-        //txtKinmu.endEditing(true)
+        txtMail.endEditing(true)
     }
     
     //全件一覧表示ボタンクリック
@@ -529,37 +432,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         mContactLoadDialog2 = ContactLoadDialog2(parentView: self, resultFrom: mDBHelper.resultArray)
         mContactLoadDialog2.showResult()
     }
-    
-    /*
-    //震度6弱以上
-    func showSelectEarthquake1(_ sender: UIButton){
-        //DBにつないでselect文実行
-        mDBHelper.select2("1")
-        mContactLoadDialog2 = ContactLoadDialog2(parentView: self, resultFrom: mDBHelper.resultArray)
-        mContactLoadDialog2.showResult()
-    }
-    
-    //震度５強
-    func showSelectEarthquake2(_ sender: UIButton){
-        mDBHelper.select2("2")
-        mContactLoadDialog2 = ContactLoadDialog2(parentView: self, resultFrom: mDBHelper.resultArray)
-        mContactLoadDialog2.showResult()
-    }
-    
-    //震度5弱
-    func showSelectEarthquake3(_ sender: UIButton){
-        mDBHelper.select2("3")
-        mContactLoadDialog2 = ContactLoadDialog2(parentView: self, resultFrom: mDBHelper.resultArray)
-        mContactLoadDialog2.showResult()
-    }
-    
-    //震度4
-    func showSelectEarthquake4(_ sender: UIButton){
-        mDBHelper.select2("4")
-        mContactLoadDialog2 = ContactLoadDialog2(parentView: self, resultFrom: mDBHelper.resultArray)
-        mContactLoadDialog2.showResult()
-    }
-    */
     
     //検索ボタンクリック
     func onClickbtnSearch(_ sender : UIButton){
