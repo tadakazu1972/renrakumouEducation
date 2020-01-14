@@ -97,14 +97,14 @@ class ContactPassInputDialog : UITextField {
         textField1.font = UIFont.systemFont(ofSize: (CGFloat(14)))
         textField1.textAlignment = NSTextAlignment.center
         textField1.placeholder = "パスワードを入力してください"
-        textField1.borderStyle = UITextBorderStyle.roundedRect
+        textField1.borderStyle = UITextField.BorderStyle.roundedRect
         self.win1.addSubview(textField1)
         
         //閉じるボタン生成
         btnClose.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnClose.backgroundColor = UIColor.orange
-        btnClose.setTitle("閉じる", for: UIControlState())
-        btnClose.setTitleColor(UIColor.white, for: UIControlState())
+        btnClose.setTitle("閉じる", for: UIControl.State())
+        btnClose.setTitleColor(UIColor.white, for: UIControl.State())
         btnClose.layer.masksToBounds = true
         btnClose.layer.cornerRadius = 10.0
         btnClose.layer.position = CGPoint(x: self.win1.frame.width/2-60, y: self.win1.frame.height-20)
@@ -114,8 +114,8 @@ class ContactPassInputDialog : UITextField {
         //入力ボタン生成
         btnInput.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnInput.backgroundColor = UIColor.red
-        btnInput.setTitle("入力", for: UIControlState())
-        btnInput.setTitleColor(UIColor.white, for: UIControlState())
+        btnInput.setTitle("入力", for: UIControl.State())
+        btnInput.setTitleColor(UIColor.white, for: UIControl.State())
         btnInput.layer.masksToBounds = true
         btnInput.layer.cornerRadius = 10.0
         btnInput.layer.position = CGPoint(x: self.win1.frame.width/2+60, y: self.win1.frame.height-20)

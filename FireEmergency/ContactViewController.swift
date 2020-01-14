@@ -74,9 +74,9 @@ class ContactViewController: UIViewController {
         //トップへ戻るボタン
         btnData.backgroundColor = UIColor.blue
         btnData.layer.masksToBounds = true
-        btnData.setTitle("トップへ戻る", for: UIControlState())
-        btnData.setTitleColor(UIColor.white, for: UIControlState())
-        btnData.setTitleColor(UIColor.black, for: UIControlState.highlighted)
+        btnData.setTitle("トップへ戻る", for: UIControl.State())
+        btnData.setTitleColor(UIColor.white, for: UIControl.State())
+        btnData.setTitleColor(UIColor.black, for: UIControl.State.highlighted)
         btnData.layer.cornerRadius = 8.0
         btnData.tag = 0
         btnData.translatesAutoresizingMaskIntoConstraints = false
@@ -100,9 +100,9 @@ class ContactViewController: UIViewController {
         //一覧
         btnContact1.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnContact1.layer.masksToBounds = true
-        btnContact1.setTitle("一覧", for: UIControlState())
-        btnContact1.setTitleColor(UIColor.black, for: UIControlState())
-        btnContact1.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btnContact1.setTitle("一覧", for: UIControl.State())
+        btnContact1.setTitleColor(UIColor.black, for: UIControl.State())
+        btnContact1.setTitleColor(UIColor.red, for: UIControl.State.highlighted)
         btnContact1.tag=5
         btnContact1.translatesAutoresizingMaskIntoConstraints = false
         btnContact1.addTarget(self, action: #selector(self.showSelectContact1(_:)), for: .touchUpInside)
@@ -110,8 +110,8 @@ class ContactViewController: UIViewController {
         //新規
         btnContact2.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnContact2.layer.masksToBounds = true
-        btnContact2.setTitle("新規", for: UIControlState())
-        btnContact2.setTitleColor(UIColor.black, for: UIControlState())
+        btnContact2.setTitle("新規", for: UIControl.State())
+        btnContact2.setTitleColor(UIColor.black, for: UIControl.State())
         btnContact2.tag=6
         btnContact2.translatesAutoresizingMaskIntoConstraints = false
         btnContact2.addTarget(self, action: #selector(self.showSelectContactNew(_:)), for: .touchUpInside)
@@ -119,8 +119,8 @@ class ContactViewController: UIViewController {
         //修正
         btnContact3.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnContact3.layer.masksToBounds = true
-        btnContact3.setTitle("修正", for: UIControlState())
-        btnContact3.setTitleColor(UIColor.black, for: UIControlState())
+        btnContact3.setTitle("修正", for: UIControl.State())
+        btnContact3.setTitleColor(UIColor.black, for: UIControl.State())
         btnContact3.tag=7
         btnContact3.translatesAutoresizingMaskIntoConstraints = false
         btnContact3.addTarget(self, action: #selector(self.showSelectContactUpdate(_:)), for: .touchUpInside)
@@ -128,8 +128,8 @@ class ContactViewController: UIViewController {
         //削除
         btnContact4.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnContact4.layer.masksToBounds = true
-        btnContact4.setTitle("削除", for: UIControlState())
-        btnContact4.setTitleColor(UIColor.black, for: UIControlState())
+        btnContact4.setTitle("削除", for: UIControl.State())
+        btnContact4.setTitleColor(UIColor.black, for: UIControl.State())
         btnContact4.tag=8
         btnContact4.translatesAutoresizingMaskIntoConstraints = false
         btnContact4.addTarget(self, action: #selector(self.showSelectContactDelete(_:)), for: .touchUpInside)
@@ -137,8 +137,8 @@ class ContactViewController: UIViewController {
         //CSVファイル読込
         btnContact5.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnContact5.layer.masksToBounds = true
-        btnContact5.setTitle("CSVファイル読込", for: UIControlState())
-        btnContact5.setTitleColor(UIColor.black, for: UIControlState())
+        btnContact5.setTitle("CSVファイル読込", for: UIControl.State())
+        btnContact5.setTitleColor(UIColor.black, for: UIControl.State())
         btnContact5.tag=9
         btnContact5.translatesAutoresizingMaskIntoConstraints = false
         btnContact5.addTarget(self, action: #selector(self.showContactImportCSV(_:)), for: .touchUpInside)
@@ -146,9 +146,9 @@ class ContactViewController: UIViewController {
         //CSVファイル読み込ませ説明書ボタン
         btnGuide.backgroundColor = UIColor.orange
         btnGuide.layer.masksToBounds = true
-        btnGuide.setTitle("CSVファイル読み込ませ説明書", for: UIControlState())
-        btnGuide.setTitleColor(UIColor.white, for: UIControlState())
-        btnGuide.setTitleColor(UIColor.black, for: UIControlState.highlighted)
+        btnGuide.setTitle("CSVファイル読み込ませ説明書", for: UIControl.State())
+        btnGuide.setTitleColor(UIColor.white, for: UIControl.State())
+        btnGuide.setTitleColor(UIColor.black, for: UIControl.State.highlighted)
         btnGuide.layer.cornerRadius = 8.0
         btnGuide.translatesAutoresizingMaskIntoConstraints = false
         btnGuide.addTarget(self, action: #selector(self.showGuide(_:)), for: .touchUpInside)
@@ -169,9 +169,9 @@ class ContactViewController: UIViewController {
         //情報（地震）
         btnEarthquakeEarthquake.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnEarthquakeEarthquake.layer.masksToBounds = true
-        btnEarthquakeEarthquake.setTitle("情報(地震)", for: UIControlState())
-        btnEarthquakeEarthquake.setTitleColor(UIColor.black, for: UIControlState())
-        btnEarthquakeEarthquake.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btnEarthquakeEarthquake.setTitle("情報(地震)", for: UIControl.State())
+        btnEarthquakeEarthquake.setTitleColor(UIColor.black, for: UIControl.State())
+        btnEarthquakeEarthquake.setTitleColor(UIColor.red, for: UIControl.State.highlighted)
         btnEarthquakeEarthquake.tag=10
         btnEarthquakeEarthquake.translatesAutoresizingMaskIntoConstraints = false
         btnEarthquakeEarthquake.addTarget(self, action: #selector(self.showInfoEarthquake(_:)), for: .touchUpInside)
@@ -179,9 +179,9 @@ class ContactViewController: UIViewController {
         //情報（停電）
         btnEarthquakeBlackout.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnEarthquakeBlackout.layer.masksToBounds = true
-        btnEarthquakeBlackout.setTitle("情報(停電)", for: UIControlState())
-        btnEarthquakeBlackout.setTitleColor(UIColor.black, for: UIControlState())
-        btnEarthquakeBlackout.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btnEarthquakeBlackout.setTitle("情報(停電)", for: UIControl.State())
+        btnEarthquakeBlackout.setTitleColor(UIColor.black, for: UIControl.State())
+        btnEarthquakeBlackout.setTitleColor(UIColor.red, for: UIControl.State.highlighted)
         btnEarthquakeBlackout.tag=11
         btnEarthquakeBlackout.translatesAutoresizingMaskIntoConstraints = false
         btnEarthquakeBlackout.addTarget(self, action: #selector(self.showInfoBlackout(_:)), for: .touchUpInside)
@@ -189,9 +189,9 @@ class ContactViewController: UIViewController {
         //情報（道路）
         btnEarthquakeRoad.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnEarthquakeRoad.layer.masksToBounds = true
-        btnEarthquakeRoad.setTitle("情報(道路)", for: UIControlState())
-        btnEarthquakeRoad.setTitleColor(UIColor.black, for: UIControlState())
-        btnEarthquakeRoad.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btnEarthquakeRoad.setTitle("情報(道路)", for: UIControl.State())
+        btnEarthquakeRoad.setTitleColor(UIColor.black, for: UIControl.State())
+        btnEarthquakeRoad.setTitleColor(UIColor.red, for: UIControl.State.highlighted)
         btnEarthquakeRoad.tag=12
         btnEarthquakeRoad.translatesAutoresizingMaskIntoConstraints = false
         btnEarthquakeRoad.addTarget(self, action: #selector(self.showInfoRoad(_:)), for: .touchUpInside)
@@ -199,8 +199,8 @@ class ContactViewController: UIViewController {
         //連絡網
         btnEarthquakeTel.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnEarthquakeTel.layer.masksToBounds = true
-        btnEarthquakeTel.setTitle("情報(天気)", for: UIControlState())
-        btnEarthquakeTel.setTitleColor(UIColor.black, for: UIControlState())
+        btnEarthquakeTel.setTitle("情報(天気)", for: UIControl.State())
+        btnEarthquakeTel.setTitleColor(UIColor.black, for: UIControl.State())
         btnEarthquakeTel.tag=13
         btnEarthquakeTel.translatesAutoresizingMaskIntoConstraints = false
         btnEarthquakeTel.addTarget(self, action: #selector(self.showContactLoad(_:)), for: .touchUpInside)
@@ -208,9 +208,9 @@ class ContactViewController: UIViewController {
         //留意事項
         btnEarthquakeCaution.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnEarthquakeCaution.layer.masksToBounds = true
-        btnEarthquakeCaution.setTitle("留意事項", for: UIControlState())
-        btnEarthquakeCaution.setTitleColor(UIColor.black, for: UIControlState())
-        btnEarthquakeCaution.setTitleColor(UIColor.red, for: UIControlState.highlighted)
+        btnEarthquakeCaution.setTitle("留意事項", for: UIControl.State())
+        btnEarthquakeCaution.setTitleColor(UIColor.black, for: UIControl.State())
+        btnEarthquakeCaution.setTitleColor(UIColor.red, for: UIControl.State.highlighted)
         btnEarthquakeCaution.tag=14
         btnEarthquakeCaution.translatesAutoresizingMaskIntoConstraints = false
         btnEarthquakeCaution.addTarget(self, action: #selector(self.showInfoCaution(_:)), for: .touchUpInside)
@@ -218,8 +218,8 @@ class ContactViewController: UIViewController {
         //防災ネット
         btnEarthquakeBousaiNet.backgroundColor = UIColor(red:0.85, green:0.85, blue:0.85, alpha:1.0)
         btnEarthquakeBousaiNet.layer.masksToBounds = true
-        btnEarthquakeBousaiNet.setTitle("防災ネット", for: UIControlState())
-        btnEarthquakeBousaiNet.setTitleColor(UIColor.black, for: UIControlState())
+        btnEarthquakeBousaiNet.setTitle("防災ネット", for: UIControl.State())
+        btnEarthquakeBousaiNet.setTitleColor(UIColor.black, for: UIControl.State())
         btnEarthquakeBousaiNet.tag=15
         btnEarthquakeBousaiNet.translatesAutoresizingMaskIntoConstraints = false
         btnEarthquakeBousaiNet.addTarget(self, action: #selector(self.showInfoBousainet(_:)), for: .touchUpInside)
@@ -250,7 +250,7 @@ class ContactViewController: UIViewController {
     }
     
     //制約ひな型
-    func Constraint(_ item: AnyObject, _ attr: NSLayoutAttribute, to: AnyObject?, _ attrTo: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutRelation = .equal, priority: UILayoutPriority = UILayoutPriorityRequired) -> NSLayoutConstraint {
+    func Constraint(_ item: AnyObject, _ attr: NSLayoutConstraint.Attribute, to: AnyObject?, _ attrTo: NSLayoutConstraint.Attribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority = UILayoutPriority.required) -> NSLayoutConstraint {
         let ret = NSLayoutConstraint(
             item:       item,
             attribute:  attr,
@@ -425,14 +425,14 @@ class ContactViewController: UIViewController {
     }
     
     //一覧
-    func showSelectContact1(_ sender: UIButton){
+    @objc func showSelectContact1(_ sender: UIButton){
         mDBHelper.selectAll()
         mContactLoadDialog2 = ContactLoadDialog2(parentView: self, resultFrom: mDBHelper.resultArray)
         mContactLoadDialog2.showResult()
     }
     
     //新規
-    func showSelectContactNew(_ sender: UIButton){
+    @objc func showSelectContactNew(_ sender: UIButton){
         let data:ContactNewViewController = ContactNewViewController()
         let nav = UINavigationController(rootViewController: data)
         nav.setNavigationBarHidden(true, animated: false) //これをいれないとNavigationBarが表示されてうざい
@@ -440,62 +440,62 @@ class ContactViewController: UIViewController {
     }
     
     //修正
-    func showSelectContactUpdate(_ sender: UIButton){
+    @objc func showSelectContactUpdate(_ sender: UIButton){
         mDBHelper.selectAll2() //_idを含む呼び出す。後でその_idをもって上書きするデータを指定するから。
         mContactUpdateSelectDialog = ContactUpdateSelectDialog(parentView: self, resultFrom: mDBHelper.resultArray)
         mContactUpdateSelectDialog.showResult()
     }
     
     //削除
-    func showSelectContactDelete(_ sender: UIButton){
+    @objc func showSelectContactDelete(_ sender: UIButton){
         mDBHelper.selectAll2() //_idを含む2を呼び出し
         mContactDeleteDialog = ContactDeleteDialog(parentView: self, resultFrom: mDBHelper.resultArray)
         mContactDeleteDialog.showResult()
     }
     
     //CSVファイル読込
-    func showContactImportCSV(_ sender: UIButton){
+    @objc func showContactImportCSV(_ sender: UIButton){
         mContactImportCSVDialog = ContactImportCSVDialog(parentView: self)
         mContactImportCSVDialog.showResult()
     }
     
     //CSVファイル読み込ませ説明書　表示
-    func showGuide(_ sender: UIButton){
+    @objc func showGuide(_ sender: UIButton){
         mGuide22Dialog.showInfo()
     }
     
     //情報(地震)
-    func showInfoEarthquake(_ sender: UIButton){
+    @objc func showInfoEarthquake(_ sender: UIButton){
         mInfoDialog.showInfo("earthquake")
     }
     
     //情報（停電）
-    func showInfoBlackout(_ sender: UIButton){
+    @objc func showInfoBlackout(_ sender: UIButton){
         mInfoDialog.showInfo("blackout")
     }
     
     //情報（道路）
-    func showInfoRoad(_ sender: UIButton){
+    @objc func showInfoRoad(_ sender: UIButton){
         mInfoDialog.showInfo("road")
     }
     
     //情報（天気）
-    func showContactLoad(_ sender: UIButton){
+    @objc func showContactLoad(_ sender: UIButton){
         mInfoDialog.showInfo("weather")
     }
     
     //留意事項
-    func showInfoCaution(_ sender: UIButton){
+    @objc func showInfoCaution(_ sender: UIButton){
         mInfoDialog.showInfo("caution")
     }
     
     //防災ネット
-    func showInfoBousainet(_ sender: UIButton){
+    @objc func showInfoBousainet(_ sender: UIButton){
         mBousainetDialog.showInfo()
     }
     
     //基礎データ入力画面遷移
-    func onClickbtnData(_ sender : UIButton){
+    @objc func onClickbtnData(_ sender : UIButton){
         let data:ViewController = ViewController()
         let nav = UINavigationController(rootViewController: data)
         nav.setNavigationBarHidden(true, animated: false) //これをいれないとNavigationBarが表示されてうざい

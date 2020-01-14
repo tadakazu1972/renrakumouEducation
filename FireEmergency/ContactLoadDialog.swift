@@ -98,7 +98,7 @@ class ContactLoadDialog: NSObject, UITableViewDelegate, UITableViewDataSource {
         table.delegate = self
         table.dataSource = self
         table.estimatedRowHeight = 10 //下とあわせこの２行で複数表示されるときの間がひらくように
-        table.rowHeight = UITableViewAutomaticDimension
+        table.rowHeight = UITableView.automaticDimension
         table.register(ContactCell1.self, forCellReuseIdentifier:"contactCell1")
         table.separatorColor = UIColor.clear
         self.win1.addSubview(table)
@@ -106,8 +106,8 @@ class ContactLoadDialog: NSObject, UITableViewDelegate, UITableViewDataSource {
         //閉じるボタン生成
         btnClose.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnClose.backgroundColor = UIColor.orange
-        btnClose.setTitle("閉じる", for: UIControlState())
-        btnClose.setTitleColor(UIColor.white, for: UIControlState())
+        btnClose.setTitle("閉じる", for: UIControl.State())
+        btnClose.setTitleColor(UIColor.white, for: UIControl.State())
         btnClose.layer.masksToBounds = true
         btnClose.layer.cornerRadius = 10.0
         btnClose.layer.position = CGPoint(x: self.win1.frame.width/2-60, y: self.win1.frame.height-20)
@@ -117,8 +117,8 @@ class ContactLoadDialog: NSObject, UITableViewDelegate, UITableViewDataSource {
         //メール送信ボタン生成
         btnMail.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnMail.backgroundColor = UIColor.red
-        btnMail.setTitle("メール送信", for: UIControlState())
-        btnMail.setTitleColor(UIColor.white, for: UIControlState())
+        btnMail.setTitle("メール送信", for: UIControl.State())
+        btnMail.setTitleColor(UIColor.white, for: UIControl.State())
         btnMail.layer.masksToBounds = true
         btnMail.layer.cornerRadius = 10.0
         btnMail.layer.position = CGPoint(x: self.win1.frame.width/2+60, y: self.win1.frame.height-20)

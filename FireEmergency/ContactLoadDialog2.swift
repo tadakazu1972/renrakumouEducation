@@ -86,20 +86,20 @@ class ContactLoadDialog2: NSObject, UITableViewDelegate, UITableViewDataSource {
         table.delegate = self
         table.dataSource = self
         table.estimatedRowHeight = 60 //下とあわせこの２行で複数表示されるときの間がひらくように
-        table.rowHeight = UITableViewAutomaticDimension
+        table.rowHeight = UITableView.automaticDimension
         table.register(ContactCellCheckbox.self, forCellReuseIdentifier:"contactCellCheckbox")
         table.separatorColor = UIColor.clear
         table.allowsMultipleSelection = true
         self.win1.addSubview(table)
         
-        func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: IndexPath) -> CGFloat { return UITableViewAutomaticDimension }
+        func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: IndexPath) -> CGFloat { return UITableView.automaticDimension }
 
         
         //閉じるボタン生成
         btnClose.frame = CGRect(x: 0,y: 0,width: 80,height: 30)
         btnClose.backgroundColor = UIColor.orange
-        btnClose.setTitle("閉じる", for: UIControlState())
-        btnClose.setTitleColor(UIColor.white, for: UIControlState())
+        btnClose.setTitle("閉じる", for: UIControl.State())
+        btnClose.setTitleColor(UIColor.white, for: UIControl.State())
         btnClose.layer.masksToBounds = true
         btnClose.layer.cornerRadius = 10.0
         btnClose.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height-20)
@@ -109,9 +109,9 @@ class ContactLoadDialog2: NSObject, UITableViewDelegate, UITableViewDataSource {
         //メール送信ボタン生成
         btnMail.frame = CGRect(x: 0,y: 0,width: 90,height: 30)
         btnMail.backgroundColor = UIColor.red
-        btnMail.setTitle("メール送信", for: UIControlState())
+        btnMail.setTitle("メール送信", for: UIControl.State())
         btnMail.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        btnMail.setTitleColor(UIColor.white, for: UIControlState())
+        btnMail.setTitleColor(UIColor.white, for: UIControl.State())
         btnMail.layer.masksToBounds = true
         btnMail.layer.cornerRadius = 10.0
         btnMail.layer.position = CGPoint(x: self.win1.frame.width/2+100, y: self.win1.frame.height-20)
@@ -121,9 +121,9 @@ class ContactLoadDialog2: NSObject, UITableViewDelegate, UITableViewDataSource {
         //すべて選択/解除ボタン生成
         btnAll.frame = CGRect(x: 0,y: 0,width: 90,height: 30)
         btnAll.backgroundColor = UIColor.magenta
-        btnAll.setTitle("全て選択/解除", for: UIControlState())
+        btnAll.setTitle("全て選択/解除", for: UIControl.State())
         btnAll.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        btnAll.setTitleColor(UIColor.white, for: UIControlState())
+        btnAll.setTitleColor(UIColor.white, for: UIControl.State())
         btnAll.layer.masksToBounds = true
         btnAll.layer.cornerRadius = 10.0
         btnAll.layer.position = CGPoint(x: self.win1.frame.width/2-100, y: self.win1.frame.height-20)
@@ -174,7 +174,7 @@ class ContactLoadDialog2: NSObject, UITableViewDelegate, UITableViewDataSource {
     }
     
     //全て選択/解除
-    func onClickAll(_ sender: UIButton){
+    @objc func onClickAll(_ sender: UIButton){
         let line = result.count
         for index in 0..<line {
             self.checkArray[index] = !self.checkArray[index]

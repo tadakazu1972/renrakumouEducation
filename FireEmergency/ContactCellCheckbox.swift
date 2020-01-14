@@ -22,13 +22,13 @@ class ContactCellCheckbox: UITableViewCell, UITextViewDelegate {
         super.init(coder: aDecoder)!
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String!){
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         checkbox = UIButton(frame: CGRect(x: 0, y: 14, width: 28, height: 28))
         checkbox?.tintColor = UIColor.red
-        checkbox?.setImage(UIImage(named: "ic_check_box.png"), for: UIControlState.selected)
-        checkbox?.setImage(UIImage(named: "ic_check_box_outline_blank.png"), for: UIControlState())
+        checkbox?.setImage(UIImage(named: "ic_check_box.png"), for: UIControl.State.selected)
+        checkbox?.setImage(UIImage(named: "ic_check_box_outline_blank.png"), for: UIControl.State())
         self.contentView.addSubview(checkbox!)
         
         name = UILabel(frame: CGRect(x: 28, y: 0, width: 140, height: 24))

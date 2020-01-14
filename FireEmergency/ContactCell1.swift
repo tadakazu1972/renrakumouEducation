@@ -21,7 +21,7 @@ class ContactCell1: UITableViewCell {
         super.init(coder: aDecoder)!
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String!){
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         name = UILabel(frame: CGRect(x: 0, y: 0, width: 140, height: 24))

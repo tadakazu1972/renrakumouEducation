@@ -48,7 +48,7 @@ extension String {
     }
     
     var length: Int {
-        return self.characters.count
+        return self.count
     }
     
     func stringByAppendingPathComponent(_ path: String) -> String {

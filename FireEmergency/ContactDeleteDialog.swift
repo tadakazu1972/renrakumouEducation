@@ -83,20 +83,20 @@ class ContactDeleteDialog: NSObject, UITableViewDelegate, UITableViewDataSource 
         table.delegate = self
         table.dataSource = self
         table.estimatedRowHeight = 60 //下とあわせこの２行で複数表示されるときの間がひらくように
-        table.rowHeight = UITableViewAutomaticDimension
+        table.rowHeight = UITableView.automaticDimension
         table.register(ContactCellCheckbox.self, forCellReuseIdentifier:"contactCellCheckbox")
         table.separatorColor = UIColor.clear
         table.allowsMultipleSelection = true
         self.win1.addSubview(table)
         
-        func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: IndexPath) -> CGFloat { return UITableViewAutomaticDimension }
+        func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: IndexPath) -> CGFloat { return UITableView.automaticDimension }
         
         
         //閉じるボタン生成
         btnClose.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnClose.backgroundColor = UIColor.orange
-        btnClose.setTitle("閉じる", for: UIControlState())
-        btnClose.setTitleColor(UIColor.white, for: UIControlState())
+        btnClose.setTitle("閉じる", for: UIControl.State())
+        btnClose.setTitleColor(UIColor.white, for: UIControl.State())
         btnClose.layer.masksToBounds = true
         btnClose.layer.cornerRadius = 10.0
         btnClose.layer.position = CGPoint(x: self.win1.frame.width/2-60, y: self.win1.frame.height-20)
@@ -106,8 +106,8 @@ class ContactDeleteDialog: NSObject, UITableViewDelegate, UITableViewDataSource 
         //削除ボタン生成
         btnDelete.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnDelete.backgroundColor = UIColor.red
-        btnDelete.setTitle("削除", for: UIControlState())
-        btnDelete.setTitleColor(UIColor.white, for: UIControlState())
+        btnDelete.setTitle("削除", for: UIControl.State())
+        btnDelete.setTitleColor(UIColor.white, for: UIControl.State())
         btnDelete.layer.masksToBounds = true
         btnDelete.layer.cornerRadius = 10.0
         btnDelete.layer.position = CGPoint(x: self.win1.frame.width/2+60, y: self.win1.frame.height-20)
@@ -133,8 +133,8 @@ class ContactDeleteDialog: NSObject, UITableViewDelegate, UITableViewDataSource 
         }
         
         //アラート表示
-        let alert = UIAlertController(title:"", message: "データを削除しました", preferredStyle: UIAlertControllerStyle.alert)
-        let alertCancel = UIAlertAction(title:"閉じる", style: UIAlertActionStyle.cancel, handler:nil)
+        let alert = UIAlertController(title:"", message: "データを削除しました", preferredStyle: UIAlertController.Style.alert)
+        let alertCancel = UIAlertAction(title:"閉じる", style: UIAlertAction.Style.cancel, handler:nil)
         alert.addAction(alertCancel)
         parent.present(alert, animated:true, completion: nil)
         

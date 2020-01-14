@@ -84,8 +84,8 @@ class BousainetDialog {
         //閉じるボタン生成
         btnClose.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnClose.backgroundColor = UIColor.orange
-        btnClose.setTitle("閉じる", for: UIControlState())
-        btnClose.setTitleColor(UIColor.white, for: UIControlState())
+        btnClose.setTitle("閉じる", for: UIControl.State())
+        btnClose.setTitleColor(UIColor.white, for: UIControl.State())
         btnClose.layer.masksToBounds = true
         btnClose.layer.cornerRadius = 10.0
         btnClose.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height-20)
@@ -95,8 +95,8 @@ class BousainetDialog {
         //大阪市防災アプリボタン生成
         btnApp.frame = CGRect(x: 0,y: 0,width: 160,height: 30)
         btnApp.backgroundColor = UIColor.lightGray
-        btnApp.setTitle("大阪市防災アプリ", for: UIControlState())
-        btnApp.setTitleColor(UIColor.black, for: UIControlState())
+        btnApp.setTitle("大阪市防災アプリ", for: UIControl.State())
+        btnApp.setTitleColor(UIColor.black, for: UIControl.State())
         btnApp.layer.masksToBounds = true
         btnApp.layer.cornerRadius = 0.0
         btnApp.layer.position = CGPoint(x: self.win1.frame.width/2, y: self.win1.frame.height/2)

@@ -71,7 +71,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         txtName.adjustsFontSizeToFitWidth = true
         txtName.textColor = UIColor.black
         txtName.delegate = self
-        txtName.borderStyle = UITextBorderStyle.bezel
+        txtName.borderStyle = UITextField.BorderStyle.bezel
         txtName.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(txtName)
         //電話番号テキストフィールド
@@ -79,7 +79,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         txtTel.adjustsFontSizeToFitWidth = true
         txtTel.textColor = UIColor.black
         txtTel.delegate = self
-        txtTel.borderStyle = UITextBorderStyle.bezel
+        txtTel.borderStyle = UITextField.BorderStyle.bezel
         txtTel.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(txtTel)
         //メールアドレステキストフィールド
@@ -87,14 +87,14 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         txtMail.adjustsFontSizeToFitWidth = true
         txtMail.textColor = UIColor.black
         txtMail.delegate = self
-        txtMail.borderStyle = UITextBorderStyle.bezel
+        txtMail.borderStyle = UITextField.BorderStyle.bezel
         txtMail.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(txtMail)
         
         //pickerViewとともにポップアップするツールバーとボタンの設定
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 35))
-        let doneItem = UIBarButtonItem(title:"選択", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.selectRow))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil) //小ワザ。上の選択ボタンを右寄せにするためのダミースペース
+        let doneItem = UIBarButtonItem(title:"選択", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.selectRow))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil) //小ワザ。上の選択ボタンを右寄せにするためのダミースペース
         toolbar.setItems([flexibleSpace, doneItem], animated: true)
         
         //非常招集区分ラベル
@@ -104,7 +104,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         lblKubun.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(lblKubun)
         //非常招集区分テキストフィールド
-        txtKubun.borderStyle = UITextBorderStyle.bezel
+        txtKubun.borderStyle = UITextField.BorderStyle.bezel
         txtKubun.text = mSelected[3]
         txtKubun.inputView = picKubun //これでテキストフィールドとピッカービューを紐付け
         txtKubun.inputAccessoryView = toolbar //上で設定したポップアップと紐付け
@@ -124,7 +124,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         lblSyozoku0.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(lblSyozoku0)
         //所属(大分類)テキストフィールド
-        txtSyozoku0.borderStyle = UITextBorderStyle.bezel
+        txtSyozoku0.borderStyle = UITextField.BorderStyle.bezel
         txtSyozoku0.text = mSelected[4]
         txtSyozoku0.inputView = picSyozoku0
         txtSyozoku0.inputAccessoryView = toolbar
@@ -144,7 +144,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         lblSyozoku.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(lblSyozoku)
         //所属(小分類)テキストフィールド
-        txtSyozoku.borderStyle = UITextBorderStyle.bezel
+        txtSyozoku.borderStyle = UITextField.BorderStyle.bezel
         txtSyozoku.text = mSelected[5]
         txtSyozoku.inputView = picSyozoku
         txtSyozoku.inputAccessoryView = toolbar
@@ -168,16 +168,16 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         txtKinmu.adjustsFontSizeToFitWidth = true
         txtKinmu.textColor = UIColor.black
         txtKinmu.delegate = self
-        txtKinmu.borderStyle = UITextBorderStyle.bezel
+        txtKinmu.borderStyle = UITextField.BorderStyle.bezel
         txtKinmu.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(txtKinmu)
         
         //キャンセルボタン
         btnCancel.backgroundColor = UIColor.blue
         btnCancel.layer.masksToBounds = true
-        btnCancel.setTitle("キャンセル", for: UIControlState())
-        btnCancel.setTitleColor(UIColor.white, for: UIControlState())
-        btnCancel.setTitleColor(UIColor.black, for: UIControlState.highlighted)
+        btnCancel.setTitle("キャンセル", for: UIControl.State())
+        btnCancel.setTitleColor(UIColor.white, for: UIControl.State())
+        btnCancel.setTitleColor(UIColor.black, for: UIControl.State.highlighted)
         btnCancel.layer.cornerRadius = 8.0
         btnCancel.tag = 2
         btnCancel.addTarget(self, action: #selector(self.onClickbtnCancel(_:)), for: .touchUpInside)
@@ -186,9 +186,9 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
         //データ登録ボタン
         btnSave.backgroundColor = UIColor.red
         btnSave.layer.masksToBounds = true
-        btnSave.setTitle("登録", for: UIControlState())
-        btnSave.setTitleColor(UIColor.white, for: UIControlState())
-        btnSave.setTitleColor(UIColor.black, for: UIControlState.highlighted)
+        btnSave.setTitle("登録", for: UIControl.State())
+        btnSave.setTitleColor(UIColor.white, for: UIControl.State())
+        btnSave.setTitleColor(UIColor.black, for: UIControl.State.highlighted)
         btnSave.layer.cornerRadius = 8.0
         btnSave.tag = 1
         btnSave.addTarget(self, action: #selector(self.onClickbtnSave(_:)), for: .touchUpInside)
@@ -200,7 +200,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     //制約ひな型
-    func Constraint(_ item: AnyObject, _ attr: NSLayoutAttribute, to: AnyObject?, _ attrTo: NSLayoutAttribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutRelation = .equal, priority: UILayoutPriority = UILayoutPriorityRequired) -> NSLayoutConstraint {
+    func Constraint(_ item: AnyObject, _ attr: NSLayoutConstraint.Attribute, to: AnyObject?, _ attrTo: NSLayoutConstraint.Attribute, constant: CGFloat = 0.0, multiplier: CGFloat = 1.0, relate: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority = UILayoutPriority.required) -> NSLayoutConstraint {
         let ret = NSLayoutConstraint(
             item:       item,
             attribute:  attr,
@@ -385,7 +385,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     //ツールバーで選択ボタンを押した時
-    func selectRow(){
+    @objc func selectRow(){
         txtKubun.endEditing(true) //閉じるアクション
         txtSyozoku0.endEditing(true)
         txtSyozoku.endEditing(true)
@@ -393,7 +393,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     //登録ボタンクリック
-    func onClickbtnSave(_ sender : UIButton){
+    @objc func onClickbtnSave(_ sender : UIButton){
         
         //DBに書き込み
         mDBHelper.update(txtName.text!, tel: txtTel.text!, mail: txtMail.text!, kubun: txtKubun.text!, syozoku0: txtSyozoku0.text!, syozoku: txtSyozoku.text!, kinmu: txtKinmu.text!, _id: mSelected[7])
@@ -406,7 +406,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
     
     //キャンセルボタンクリック
-    func onClickbtnCancel(_ sender : UIButton){
+    @objc func onClickbtnCancel(_ sender : UIButton){
         //KinentaiViewControllerのインスタンス生成
         let data:ContactViewController = ContactViewController()
         

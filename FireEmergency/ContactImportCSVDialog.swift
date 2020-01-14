@@ -101,19 +101,19 @@ class ContactImportCSVDialog: NSObject, UITableViewDelegate, UITableViewDataSour
         table.delegate = self
         table.dataSource = self
         table.estimatedRowHeight = 60 //下とあわせこの２行で複数表示されるときの間がひらくように
-        table.rowHeight = UITableViewAutomaticDimension
+        table.rowHeight = UITableView.automaticDimension
         table.register(ContactCell1.self, forCellReuseIdentifier:"contactCell1")
         table.separatorColor = UIColor.clear
         self.win1.addSubview(table)
         
-        func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: IndexPath) -> CGFloat { return UITableViewAutomaticDimension }
+        func tableView(_ tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: IndexPath) -> CGFloat { return UITableView.automaticDimension }
         
         
         //閉じるボタン生成
         btnClose.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnClose.backgroundColor = UIColor.orange
-        btnClose.setTitle("閉じる", for: UIControlState())
-        btnClose.setTitleColor(UIColor.white, for: UIControlState())
+        btnClose.setTitle("閉じる", for: UIControl.State())
+        btnClose.setTitleColor(UIColor.white, for: UIControl.State())
         btnClose.layer.masksToBounds = true
         btnClose.layer.cornerRadius = 10.0
         btnClose.layer.position = CGPoint(x: self.win1.frame.width/2-60, y: self.win1.frame.height-20)
@@ -123,8 +123,8 @@ class ContactImportCSVDialog: NSObject, UITableViewDelegate, UITableViewDataSour
         //読込ボタン生成
         btnImport.frame = CGRect(x: 0,y: 0,width: 100,height: 30)
         btnImport.backgroundColor = UIColor.red
-        btnImport.setTitle("読込", for: UIControlState())
-        btnImport.setTitleColor(UIColor.white, for: UIControlState())
+        btnImport.setTitle("読込", for: UIControl.State())
+        btnImport.setTitleColor(UIColor.white, for: UIControl.State())
         btnImport.layer.masksToBounds = true
         btnImport.layer.cornerRadius = 10.0
         btnImport.layer.position = CGPoint(x: self.win1.frame.width/2+60, y: self.win1.frame.height-20)
@@ -156,8 +156,8 @@ class ContactImportCSVDialog: NSObject, UITableViewDelegate, UITableViewDataSour
         }
         
         //アラート表示
-        let alert = UIAlertController(title:"", message: msg, preferredStyle: UIAlertControllerStyle.alert)
-        let alertCancel = UIAlertAction(title:"閉じる", style: UIAlertActionStyle.cancel, handler:nil)
+        let alert = UIAlertController(title:"", message: msg, preferredStyle: UIAlertController.Style.alert)
+        let alertCancel = UIAlertAction(title:"閉じる", style: UIAlertAction.Style.cancel, handler:nil)
         alert.addAction(alertCancel)
         parent.present(alert, animated:true, completion: nil)
         
