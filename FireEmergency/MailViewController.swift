@@ -48,10 +48,8 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate 
             toRecipients = ["ua0001@city.osaka.lg.jp"]
         } else if userDefaults.string(forKey: "mailTo") == "教育活動支援担当" {
             toRecipients = ["ua0013@city.osaka.lg.jp"]
-        } else if userDefaults.string(forKey: "mailTo") == "初等教育担当" {
+        } else if userDefaults.string(forKey: "mailTo") == "初等・中学校教育担当" {
             toRecipients = ["ua0014@city.osaka.lg.jp"]
-        } else if userDefaults.string(forKey: "mailTo") == "中学校教育担当" {
-            toRecipients = ["ua0015@city.osaka.lg.jp"]
         } else if userDefaults.string(forKey: "mailTo") == "高等学校教育担当" {
             toRecipients = ["ua0017@city.osaka.lg.jp"]
         }

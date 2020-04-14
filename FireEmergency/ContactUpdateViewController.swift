@@ -21,7 +21,7 @@ class ContactUpdateViewController: UIViewController, UIPickerViewDelegate, UIPic
     let lblSyozoku0     = UILabel(frame: CGRect.zero)
     let txtSyozoku0     = UITextField(frame: CGRect.zero)
     let picSyozoku0     = UIPickerView(frame: CGRect.zero)
-    let syozoku0Array: NSArray = ["すべて","1B","2B","3B","4B","5B","6B","7B","8B"]
+    let syozoku0Array: NSArray = ["すべて","1B","2B","3B","4B"]
     let lblSyozoku      = UILabel(frame: CGRect.zero)
     let txtSyozoku      = UITextField(frame: CGRect.zero)
     let picSyozoku      = UIPickerView(frame: CGRect.zero)
